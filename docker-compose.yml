@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:15-alpine
     env_file:
-      - ./envs/.postgres_env
+      - ./envs/postgres.env
     ports:
       - 8080:5432
     healthcheck:
@@ -21,7 +21,7 @@ services:
       - prefect:/var/lib/.prefect
     entrypoint: ["prefect", "server", "start"]
     env_file:
-      - ./envs/.server_env
+      - ./envs/server.env
     ports:
       - 4200:4200
     depends_on:
@@ -33,7 +33,7 @@ services:
       context: .
       dockerfile: dockerfiles/jaffle.dockerfile
     env_file:
-      - ./envs/.proj_env
+      - ./envs/proj.env
     depends_on:
       - server
 
