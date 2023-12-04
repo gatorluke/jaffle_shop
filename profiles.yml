@@ -1,0 +1,12 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('DBT_DB_ACCNT') }}"
+      user: "{{ env_var('DBT_DB_USER') }}"
+      password: "{{ env_var('DBT_DB_PASS') }}"
+      database: "{{ env_var('DBT_DB_DB') }}"
+      warehouse: "{{ env_var('DBT_DB_WH') }}"
+      schema: "{{ env_var('DBT_DB_SCHEMA') }}"
+      threads: 2
